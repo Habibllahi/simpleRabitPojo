@@ -15,10 +15,14 @@ import java.util.concurrent.TimeoutException;
 @Setter
 public abstract class AbstractServiceBox<T extends AbstractServiceRequest, U extends AbstractServiceResponse> {
     private Channel channel;
+    private T serviceRequest;
+    private U serviceResponse;
     private Logger logger = LoggerFactory.getLogger("AbstractServiceBox");
 
-    public AbstractServiceBox(Channel channel){
+    public AbstractServiceBox(T serviceRequest, U serviceResponse, Channel channel){
         this.channel = channel;
+        this.serviceRequest = serviceRequest;
+        this.serviceResponse = serviceResponse;
     }
 
     private void closeMqChannel(){
