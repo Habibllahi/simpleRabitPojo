@@ -1,5 +1,6 @@
 package com.codetrik.request;
 
+import com.codetrik.dto.LoanApplication;
 import com.codetrik.dto.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -14,4 +15,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserServiceRequest extends  AbstractServiceRequest{
     private User user;
+    private LoanApplication loanApplication;
 }
