@@ -1,5 +1,7 @@
 package com.codetrik.request;
 
-public abstract class AbstractServiceRequest{
+import java.io.Serializable;
+
+public abstract class AbstractServiceRequest implements Serializable {
 
 }

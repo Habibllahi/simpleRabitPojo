@@ -1,4 +1,6 @@
 package com.codetrik.common;
 
-public abstract class AMPQMessage {
+import java.io.Serializable;
+
+public abstract class AMPQMessage implements Serializable {
 }

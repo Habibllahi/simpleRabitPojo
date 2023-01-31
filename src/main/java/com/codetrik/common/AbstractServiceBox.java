@@ -9,6 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeoutException;
 
 @Getter
@@ -17,20 +20,31 @@ public abstract class AbstractServiceBox<T extends AbstractServiceRequest, U ext
     private Channel channel;
     private T serviceRequest;
     private U serviceResponse;
+    private ExecutorService executorService;
+
     private Logger logger = LoggerFactory.getLogger("AbstractServiceBox");
 
-    public AbstractServiceBox(T serviceRequest, U serviceResponse, Channel channel){
-        this.channel = channel;
+    public AbstractServiceBox(T serviceRequest, U serviceResponse){
         this.serviceRequest = serviceRequest;
         this.serviceResponse = serviceResponse;
     }
 
     private void closeMqChannel(){
         try {
-            this.channel.close();
+            if(channel != null && channel.isOpen()){
+                this.channel.close();
+            }
         } catch (IOException | TimeoutException e) {
-            logger.error("unable to close channel established for service request");
+            this.logger.error("unable to close MQ channel established for service request");
         }
+    }
+
+    public Future<?> asyncSubmitProcess(Runnable task){
+        return this.executorService.submit(task);
+    }
+
+    public <V> Future<V> asyncCallProcess(Callable<V> task){
+        return this.executorService.submit(task);
     }
 
     public void doPostProcessing(){
