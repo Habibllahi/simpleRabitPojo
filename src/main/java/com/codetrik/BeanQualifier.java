@@ -10,4 +10,5 @@ public class BeanQualifier {
     public static final String LOAN_SERVICE = "LOAN_SERVICE";
     public static final String USER_MESSAGE = "USER_MESSAGE";
     public static final String USER_SERVICE = "USER_SERVICE";
+    public static final  String CAR_INSURANCE_SERVICE = "CAR_INSURANCE_SERVICE";
 }
