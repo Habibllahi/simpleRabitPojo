@@ -1,5 +1,6 @@
 package com.codetrik.response;
 
+import com.codetrik.dto.CarInsurance;
 import com.codetrik.dto.LoanApplication;
 import com.codetrik.dto.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -16,4 +17,5 @@ import lombok.Setter;
 public class UserServiceResponse extends AbstractServiceResponse{
     private User user;
     private LoanApplication loanApplication;
+    private CarInsurance carInsurance;
 }
