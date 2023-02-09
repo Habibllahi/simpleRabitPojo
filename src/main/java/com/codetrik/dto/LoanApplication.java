@@ -16,5 +16,5 @@ public class LoanApplication extends AMPQMessage {
     private String name;
     private String whatFor;
     private Double amount;
-    private LoanResponse response;
+    private Response response;
 }

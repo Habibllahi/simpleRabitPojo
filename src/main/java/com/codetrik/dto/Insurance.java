@@ -10,4 +10,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public abstract class Insurance extends AMPQMessage {
     private double price;
+    private Response response;
 }
