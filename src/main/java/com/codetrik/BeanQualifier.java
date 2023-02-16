@@ -12,4 +12,5 @@ public class BeanQualifier {
     public static final String USER_SERVICE = "USER_SERVICE";
     public static final  String CAR_INSURANCE_SERVICE = "CAR_INSURANCE_SERVICE";
     public static final String ASYNC_SCHEDULER_EXECUTOR = "ASYNC_SCHEDULER_EXECUTOR";
+    public static final String USER_DIRECT_MESSAGE = "USER_DIRECT_MESSAGE";
 }
